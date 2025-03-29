@@ -55,6 +55,9 @@
 .rounded{
   border-radius: 5px !important;
 }
+main{
+  overflow: auto;
+}
 
 button{
   display: flex;
