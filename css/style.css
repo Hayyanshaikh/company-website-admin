@@ -1,0 +1,143 @@
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/PlusJakartaSans-ExtraLight.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/PlusJakartaSans-Light.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/PlusJakartaSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/PlusJakartaSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/PlusJakartaSans-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-weight: 700;
+  font-style: normal;
+  src: url('../fonts/PlusJakartaSans-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Jakarta sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/PlusJakartaSans-ExtraBold.ttf');
+}
+
+* {
+  font-family: Jakarta sans, sans-serif;
+}
+
+
+.rounded{
+  border-radius: 5px !important;
+}
+
+button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(0.5rem);
+  cursor: pointer !important;
+}
+th{
+  font-weight: bold;
+  color: #222222;
+}
+
+/* div:has(table) {
+  width: 100%;
+  overflow-x: auto;
+} */
+
+table{
+  white-space: nowrap;
+}
+
+.toggle{
+  display: flex;
+  user-select: none;
+}
+
+.toggle .check_input {
+  appearance: none;
+  background-color: #dfe1e4;
+  border-radius: 72px;
+  border-style: none;
+  flex-shrink: 0;
+  height: 20px;
+  margin: 0;
+  position: relative;
+  width: 30px;
+}
+
+
+.toggle .check_input,
+.toggle .check_input::after {
+  transition: all 100ms ease-out;
+  cursor: pointer;
+}
+
+.toggle .check_input::after {
+  background-color: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 14px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  width: 14px;
+}
+
+.toggle input[type=checkbox] {
+  cursor: default;
+}
+
+.toggle .check_input:hover {
+  background-color: #c9cbcd;
+  transition-duration: 0s;
+}
+
+.toggle .check_input:checked {
+  background-color: #466bff;
+}
+
+.toggle .check_input:checked::after {
+  background-color: #fff;
+  left: 13px;
+}
+
+.toggle :focus:not(.focus-visible) {
+  outline: 0;
+}
+
+.toggle .check_input:checked:hover {
+  background-color: #3f4ef8;
+}
+
+.toggle label{
+  cursor: pointer;
+}
