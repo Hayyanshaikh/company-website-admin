@@ -16,13 +16,15 @@
   <body class="bg-stone-100">
     <div class="flex h-screen">
       <!-- Sidebar Section -->
-      <aside class="bg-[#040612] text-white py-5 space-y-6 flex-[0_0_250px]">
+      <aside
+        class="bg-[#040612] text-white py-5 space-y-6 flex-[0_0_250px] flex flex-col"
+      >
         <div class="flex items-center justify-center w-[200px] px-4">
           <img src="./images/logo/logo.svg" alt="" />
         </div>
 
         <!-- Sidebar Navigation Links -->
-        <nav class="space-y-2 pl-4">
+        <nav class="space-y-2 pl-4 flex-1 flex flex-col">
           <!-- Dashboard -->
           <a
             href="index.html"
@@ -35,7 +37,7 @@
           <!-- Packages -->
           <a
             href="packages.html"
-            class="flex items-center gap-1 p-2 px-4 bg-blue-500 rounded-[5px_0px_0px_5px] text-base"
+            class="flex items-center gap-1 p-2 px-4 hover:bg-white/[15%] rounded-[5px_0px_0px_5px] text-base"
           >
             <i class="ph ph-archive text-lg"></i>
             <span>Packages</span>
@@ -53,7 +55,7 @@
           <!-- Projects -->
           <a
             href="project.html"
-            class="flex items-center gap-1 p-2 px-4 hover:bg-white/[15%] rounded-[5px_0px_0px_5px] text-base"
+            class="flex items-center gap-1 p-2 px-4 bg-blue-500 rounded-[5px_0px_0px_5px] text-base"
           >
             <i class="ph ph-folder text-lg"></i>
             <span>Projects</span>
@@ -76,6 +78,14 @@
             <i class="ph ph-tag text-lg"></i>
             <span>Brands</span>
           </a>
+          <!-- Logout -->
+          <a
+            href="login.html"
+            class="flex items-center gap-1 p-2 px-4 hover:bg-white/[15%] rounded-[5px_0px_0px_5px] text-base mt-auto"
+          >
+            <i class="ph ph-sign-out text-lg"></i>
+            <span>Logout</span>
+          </a>
         </nav>
       </aside>
 
@@ -84,7 +94,7 @@
         <div class="p-10">
           <!-- page header -->
           <div class="flex items-center justify-between gap-2 mb-10">
-            <h1 class="text-3xl font-bold flex-1">Packages</h1>
+            <h1 class="text-3xl font-bold flex-1">Projects</h1>
             <div class="flex items-center gap-2">
               <div
                 class="flex items-center bg-white pl-4 border border-stone-300 rounded overflow-hidden focus-within:border focus-within:border-blue-500 transition"
@@ -101,11 +111,11 @@
               </div>
 
               <a
-                href="add-package.html"
+                href="add-project.html"
                 class="flex items-center gap-2 flex-[0_0_auto] bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 active:bg-blue-700 transition"
               >
                 <i class="ph ph-plus"></i>
-                <span>Add Package</span>
+                <span>Add Project</span>
               </a>
             </div>
           </div>
@@ -119,21 +129,20 @@
               <thead class="bg-stone-50 border border-b-none border-stone-300">
                 <tr>
                   <th class="px-6 py-3 text-left text-stone-600 font-semibold">
+                    Image
+                  </th>
+                  <th class="px-6 py-3 text-left text-stone-600 font-semibold">
                     Title
                   </th>
                   <th class="px-6 py-3 text-left text-stone-600 font-semibold">
                     Description
                   </th>
                   <th class="px-6 py-3 text-left text-stone-600 font-semibold">
-                    Features
+                    Service
                   </th>
-                  <th class="px-6 py-3 text-left text-stone-600 font-semibold">
-                    Tier
-                  </th>
-                  <th class="px-6 py-3 text-left text-stone-600 font-semibold">
-                    Price
-                  </th>
-                  <th class="px-6 py-3 text-left text-stone-600 font-semibold">
+                  <th
+                    class="px-6 py-3 text-left text-stone-600 font-semibold w-[150px]"
+                  >
                     Actions
                   </th>
                 </tr>
@@ -142,12 +151,17 @@
               <!-- Table Body -->
               <tbody>
                 <tr class="border-t border-stone-300">
+                  <td class="px-6 py-4">
+                    <img
+                      src="basic-plan.jpg"
+                      alt="Basic Plan"
+                      class="w-8 h-8 rounded-full"
+                    />
+                  </td>
                   <td class="px-6 py-4">Basic Plan</td>
                   <td class="px-6 py-4">For small businesses</td>
-                  <td class="px-6 py-4">Total Features 02</td>
                   <td class="px-6 py-4">Starter</td>
-                  <td class="px-6 py-4">$9.99/mo</td>
-                  <td class="px-6 py-4 w-[200px]">
+                  <td class="px-6 py-4">
                     <div class="flex items-center *:flex">
                       <a
                         href="edit-package.html"
@@ -165,12 +179,17 @@
                 </tr>
 
                 <tr class="border-t border-stone-300">
+                  <td class="px-6 py-4">
+                    <img
+                      src="premium-plan.jpg"
+                      alt="Premium Plan"
+                      class="w-8 h-8 rounded-full"
+                    />
+                  </td>
                   <td class="px-6 py-4">Premium Plan</td>
                   <td class="px-6 py-4">For growing businesses</td>
-                  <td class="px-6 py-4">Total Features 04</td>
                   <td class="px-6 py-4">Pro</td>
-                  <td class="px-6 py-4">$29.99/mo</td>
-                  <td class="px-6 py-4 w-[200px]">
+                  <td class="px-6 py-4">
                     <div class="flex items-center *:flex">
                       <a
                         href="edit-package.html"

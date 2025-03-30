@@ -55,20 +55,59 @@ $(document).ready(function () {
     }
   });
 
-  $(".imageUpload").on("change", function (event) {
-    const file = event.target.files[0]; // Selected file ko get karo
-    if (file) {
+  function handleImageUpload(inputElement) {
+    const files = Array.from(inputElement.files); // Selected files ko array me convert karo
+    const previewContainer = $(inputElement).siblings(".previewContainer");
+    previewContainer.html(""); // Purane previews clear karo
+
+    let fileList = []; // Naya array banayenge jo properly manage karega
+
+    files.forEach((file, index) => {
+      fileList.push(file); // File ko list me add karo
       const reader = new FileReader();
-      const previewContainer = $(this).siblings(".previewContainer");
-
       reader.onload = function (e) {
-        previewContainer.html(`
+        previewContainer.append(`
+                <div class="relative w-32 h-32 m-2 inline-block group rounded overflow-hidden" data-index="${index}">
                     <img src="${e.target.result}" alt="Uploaded Image" 
-                         class="w-32 h-32 object-cover rounded border border-gray-300 shadow">
-                `);
+                         class="w-full h-full object-contain border border-stone-200 bg-stone-100">
+                    <button class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity removeImage"
+                            data-index="${index}">
+                        <i class="ph ph-trash text-white text-2xl"></i>
+                    </button>
+                </div>
+            `);
       };
-
       reader.readAsDataURL(file);
-    }
+    });
+
+    $(inputElement).data("fileList", fileList); // Updated file list ko store karo
+  }
+
+  // Function to remove image from preview and input field
+  function removeImage(event, inputElement) {
+    const indexToRemove = $(event.currentTarget).parent().data("index"); // Remove hone wali image ka index lo
+    $(event.currentTarget).parent().remove(); // Image preview remove karo
+
+    let fileList = $(inputElement).data("fileList") || [];
+
+    // Naye fileList se remove karo
+    fileList = fileList.filter((file, index) => index !== indexToRemove);
+
+    // DataTransfer ka use karke input field update karo
+    let dataTransfer = new DataTransfer();
+    fileList.forEach((file) => dataTransfer.items.add(file));
+
+    inputElement.files = dataTransfer.files; // Input field ko update karo
+    $(inputElement).data("fileList", fileList); // Updated file list store karo
+  }
+
+  // Event Listener for File Upload
+  $(".imageUpload").on("change", function () {
+    handleImageUpload(this);
+  });
+
+  // Event Listener for Removing Image
+  $(document).on("click", ".removeImage", function (event) {
+    removeImage(event, $(".imageUpload")[0]);
   });
 });

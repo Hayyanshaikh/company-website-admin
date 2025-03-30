@@ -37,7 +37,7 @@
           <!-- Packages -->
           <a
             href="packages.html"
-            class="flex items-center gap-1 p-2 px-4 bg-blue-500 rounded-[5px_0px_0px_5px] text-base"
+            class="flex items-center gap-1 p-2 px-4 hover:bg-white/[15%] rounded-[5px_0px_0px_5px] text-base"
           >
             <i class="ph ph-archive text-lg"></i>
             <span>Packages</span>
@@ -55,7 +55,7 @@
           <!-- Projects -->
           <a
             href="project.html"
-            class="flex items-center gap-1 p-2 px-4 hover:bg-white/[15%] rounded-[5px_0px_0px_5px] text-base"
+            class="flex items-center gap-1 p-2 px-4 bg-blue-500 rounded-[5px_0px_0px_5px] text-base"
           >
             <i class="ph ph-folder text-lg"></i>
             <span>Projects</span>
@@ -94,10 +94,10 @@
         <div class="p-10">
           <!-- Page Header -->
           <div class="flex items-center justify-between gap-2 mb-10">
-            <h1 class="text-3xl font-bold flex-1">Add Package</h1>
+            <h1 class="text-3xl font-bold flex-1">Add Project</h1>
             <div class="flex items-center gap-2">
               <a
-                href="packages.html"
+                href="project.html"
                 class="flex items-center gap-2 flex-[0_0_auto] bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 active:bg-blue-700 transition"
               >
                 <i class="ph ph-arrow-left"></i>
@@ -109,113 +109,86 @@
           <!-- Add Package Form -->
           <div class="bg-white p-6 rounded border border-gray-300">
             <form>
-              <!-- Package Title -->
-              <div class="mb-4">
-                <label class="block text-gray-700 font-medium mb-2"
-                  >Title</label
-                >
-                <input
-                  type="text"
-                  placeholder="Enter package title"
-                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  required
-                />
-              </div>
-
-              <div class="flex gap-5">
-                <!-- Description -->
-                <div class="mb-4 flex-1 flex flex-col">
-                  <label class="block text-gray-700 font-medium mb-2"
-                    >Description</label
-                  >
-                  <textarea
-                    placeholder="Enter package description"
-                    class="w-full h-auto px-4 py-2 flex-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    required
-                  ></textarea>
-                </div>
-
-                <!-- Features -->
-                <div class="mb-4 flex-1">
-                  <div class="mb-4 flex-1">
-                    <label class="block text-gray-700 font-medium mb-2"
-                      >Features</label
-                    >
-                    <div class="flex items-center gap-3">
-                      <input
-                        type="text"
-                        id="featureInput"
-                        placeholder="Enter feature"
-                        class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                      />
-                      <button
-                        type="button"
-                        id="addFeature"
-                        class="bg-blue-500 ml-auto text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
-                      >
-                        <i class="ph ph-plus text-lg"></i>
-                        <span>Add</span>
-                      </button>
-                    </div>
-                  </div>
-
-                  <div class="flex flex-col gap-3 flex-1">
-                    <h2 class="text-lg font-bold">List of Features</h2>
-                    <div
-                      id="featureList"
-                      class="flex flex-col gap-2 max-h-[200px] overflow-auto"
-                    >
-                      <p class="text-stone-500 text">No features added</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-4 mb-6">
-                <!-- Tier Selection -->
+              <!-- Project Title & Category -->
+              <div class="flex gap-5 mb-4">
                 <div class="flex-1">
                   <label class="block text-gray-700 font-medium mb-2"
-                    >Tier</label
+                    >Project Title</label
+                  >
+                  <input
+                    type="text"
+                    placeholder="Enter project title"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    required
+                  />
+                </div>
+
+                <div class="flex-1">
+                  <label class="block text-gray-700 font-medium mb-2"
+                    >Category</label
                   >
                   <select
                     class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
                     required
                   >
-                    <option value="" disabled selected>Select a tier</option>
-                    <option value="starter">Starter</option>
-                    <option value="pro">Pro</option>
-                    <option value="enterprise">Enterprise</option>
+                    <option value="" disabled selected>
+                      Select a category
+                    </option>
+                    <option value="web_dev">Web Development</option>
+                    <option value="mobile_dev">Mobile App Development</option>
+                    <option value="ui_ux">UI/UX Design</option>
+                    <option value="seo">SEO Optimization</option>
+                    <option value="cloud">Cloud Computing</option>
+                    <option value="cyber_security">Cyber Security</option>
+                    <option value="devops">DevOps Services</option>
+                    <option value="data_analysis">Data Analysis</option>
+                    <option value="ai_ml">AI & Machine Learning</option>
+                    <option value="blockchain">Blockchain Solutions</option>
                   </select>
-                </div>
-
-                <!-- Price -->
-                <div class="flex-1">
-                  <label class="block text-gray-700 font-medium mb-2"
-                    >Price ($)</label
-                  >
-                  <input
-                    type="number"
-                    placeholder="Enter price"
-                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    required
-                  />
                 </div>
               </div>
 
-              <!-- Submit Button -->
-              <div class="flex items-center gap-2 justify-between">
+              <!-- Project Description -->
+              <div class="mb-4 flex flex-col">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Project Description</label
+                >
+                <textarea
+                  placeholder="Write a short description of the project..."
+                  class="w-full h-auto px-4 py-2 flex-1 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Project Image Upload -->
+              <div class="flex-1 mb-4">
+                <label class="block text-gray-700 font-medium mb-2"
+                  >Upload Project Images</label
+                >
+                <input
+                  type="file"
+                  class="imageUpload w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  accept="image/*"
+                  multiple="true"
+                />
+                <div class="previewContainer mt-2"></div>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <!-- Project Visibility -->
                 <div class="toggle flex items-center gap-2">
                   <input
                     checked
                     type="checkbox"
-                    id="customCheckbox"
+                    id="displayOnHomepage"
                     class="check_input"
                   />
-                  <label for="customCheckbox" class="block text-gray-700">
-                    Display on Homepage
+                  <label for="displayOnHomepage" class="block text-gray-700">
+                    Show this project on homepage
                   </label>
                 </div>
 
+                <!-- Action Buttons -->
                 <div class="flex items-center justify-end gap-2">
                   <button
                     type="button"
@@ -229,7 +202,7 @@
                     class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
                   >
                     <i class="ph ph-floppy-disk-back text-lg"></i>
-                    <span>Save</span>
+                    <span>Add Project</span>
                   </button>
                 </div>
               </div>
